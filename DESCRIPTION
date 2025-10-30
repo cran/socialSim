@@ -1,0 +1,48 @@
+Package: socialSim
+Type: Package
+Title: Simulate and Analyse Social Interaction Data
+Version: 0.1.6
+Authors@R: 
+    person(
+      given = "Rori Efrain",
+      family = "Wijnhorst",
+      email = "roriwijnhorst@gmail.com",
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0002-8902-592X")
+    )
+Description: 
+    Provides tools to simulate and analyse datasets of social interactions 
+    between individuals using hierarchical Bayesian models implemented in Stan. 
+    The package interacts with Stan via 'cmdstanr' (available from 
+    <https://mc-stan.org/r-packages/>) or 'rstan', depending on user setup. 
+    Users can generate realistic interaction data where individual phenotypes influence 
+    and respond to those of their partners, with control over sampling design parameters 
+    such as the number of individuals, partners, and repeated dyads. The simulation 
+    framework allows flexible control over variation and correlation in mean trait 
+    values, social responsiveness, and social impact, making it suitable for research on 
+    interacting phenotypes and on direct and indirect genetic effects ('DGEs' and 'IGEs'). 
+    The package also includes functions to fit and compare alternative models of social 
+    effects, including impact–responsiveness, variance–partitioning, and trait-based 
+    models, and to summarise model performance in terms of bias and dispersion. For more 
+    details on the study of social interactions and impact-responsiveness,
+    see Moore et al. (1997) <doi:10.1111/j.1558-5646.1997.tb01458.x> and 
+    de Groot et al. (2022) <doi:10.1016/j.neubiorev.2022.104996>.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en-GB
+RoxygenNote: 7.3.3
+Depends: R (>= 4.2)
+Imports: MASS, stats, future, future.apply,
+Suggests: rstan, cmdstanr, devtools, testthat, rmarkdown, knitr
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+URL: https://github.com/RoriWijnhorst/socialSim
+BugReports: https://github.com/RoriWijnhorst/socialSim/issues
+Additional_repositories: https://stan-dev.r-universe.dev
+NeedsCompilation: no
+Packaged: 2025-10-26 21:36:19 UTC; Wijnhorst
+Author: Rori Efrain Wijnhorst [aut, cre] (ORCID:
+    <https://orcid.org/0000-0002-8902-592X>)
+Maintainer: Rori Efrain Wijnhorst <roriwijnhorst@gmail.com>
+Repository: CRAN
+Date/Publication: 2025-10-30 14:20:02 UTC

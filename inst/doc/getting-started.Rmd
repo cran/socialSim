@@ -1,0 +1,100 @@
+---
+title: "Getting started with socialSim"
+output:
+  rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with socialSim}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(socialSim)
+```
+
+## Overview
+
+The **socialSim** R package provides tools to simulate and analyse datasets of social interactions between individuals using hierarchical Bayesian models implemented in Stan.
+
+This vignette demonstrates a typical workflow using three main functions:
+
+1. `simulate_data()` – generate datasets of social interactions  
+2. `run_model()` – fit a Stan model to the simulated datasets  
+3. `summarise_results()` – evaluate bias and dispersion of estimated parameters
+
+---
+
+## 1. Simulating data
+
+```{r simulate, eval=FALSE}
+sim <- simulate_data(
+  ind = 200,
+  partners = 4,
+  repeats = 1,
+  iterations = 5,
+  B_0 = 1,
+  psi = 0.3,
+  Valpha = 0.2,
+  Vepsilon = 0.1
+)
+```
+
+This creates a list of datasets representing repeated social interactions.  
+You can control study design components, variance components and correlations between direct and indirect effect.
+
+---
+
+## 2. Fitting a model
+
+To analyse the data, fit one of the included Stan models:
+
+```{r model, eval=FALSE}
+res <- run_model(sim, model = "Trait.stan", iter = 2000, cores = 4)
+```
+
+Importantly, you will need **cmdstanr** or **rstan** installed for this step.  
+Using cmdstanr will be faster since it compiles and runs models in parallel.
+
+---
+
+## 3. Summarising results
+
+Once the models are fitted, summarise bias and dispersion across simulations:
+
+```{r summarise, eval=FALSE}
+summary <- summarise_results(res)
+print(summary)
+```
+
+This function extracts model estimates and computes metrics such as mean absolute deviation (MADm) across replicates.
+
+---
+
+## Example output (simulated workflow)
+
+Here’s a minimal example with few iterations for a fast runtime:
+
+```{r example, eval=FALSE}
+sim <- simulate_data(ind = 50, partners = 2, iterations = 4, Valpha = 0.2, Vepsilon = 0.1)
+res <- run_model(sim, model = "Trait.stan", iter = 500, cores = 4)
+summary <- summarise_results(res)
+print(summary)
+```
+
+---
+
+## Conclusion
+
+The **socialSim** package helps researchers design, simulate, and evaluate models of social phenotypes and indirect genetic effects.
+
+```{r}
+?simulate_data
+?run_model
+?summarise_results
+```
+
+and visit the [GitHub page](https://github.com/RoriWijnhorst/socialSim) for the latest updates.
