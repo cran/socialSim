@@ -381,10 +381,8 @@ correlations between direct and indirect effect.</p>
 <h2>2. Fitting a model</h2>
 <p>To analyse the data, fit one of the included Stan models:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">run_model</span>(sim, <span class="at">model =</span> <span class="st">&quot;Trait.stan&quot;</span>, <span class="at">iter =</span> <span class="dv">2000</span>, <span class="at">cores =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p>Importantly, you will need <strong>cmdstanr</strong> or
-<strong>rstan</strong> installed for this step.<br />
-Using cmdstanr will be faster since it compiles and runs models in
-parallel.</p>
+<p>Importantly, you will need <strong>rstan</strong> installed for this
+step.</p>
 <hr />
 </div>
 <div id="summarising-results" class="section level2">

@@ -73,12 +73,14 @@ generated quantities {
   real<lower=0> Sigma2_x;
 
   real cov_2; // int-epsilon
+  real cor_2; // int-epsilon
 
   matrix[2, 2] Omega_I;
 
   vector[n_ind] xmean;
   vector[n_ind] phi;
   real cov_int_phi;
+
 
   // Variances
   Sigma2_intercept = square(sigma_I[1]);
@@ -88,6 +90,7 @@ generated quantities {
   // Correlation matrix
   Omega_I = L * L';
   cov_2 = Omega_I[1,2] * sqrt(Sigma2_epsilon * Sigma2_intercept);
+  cor_2 = Omega_I[1,2];
 
   // Compute xmean and phi per individual
   for (i in 1:n_ind) {

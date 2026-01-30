@@ -56,8 +56,7 @@ To analyse the data, fit one of the included Stan models:
 res <- run_model(sim, model = "Trait.stan", iter = 2000, cores = 4)
 ```
 
-Importantly, you will need **cmdstanr** or **rstan** installed for this step.  
-Using cmdstanr will be faster since it compiles and runs models in parallel.
+Importantly, you will need **rstan** installed for this step.
 
 ---
 

@@ -1,4 +1,4 @@
-# socialSim 0.1.6
+# socialSim 0.1.8
 
-* Initial CRAN release.
+* Maintenance update to the **socialSim** package.
 * Provides functions to simulate and analyse social interaction datasets using hierarchical Bayesian models implemented in Stan.

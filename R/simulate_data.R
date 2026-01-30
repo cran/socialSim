@@ -34,7 +34,8 @@
 #' @importFrom MASS mvrnorm
 #' @importFrom stats rnorm aggregate
 #' @examples
-#' sim <- simulate_data(ind =1200, partners = 4, iterations = 100, B_0 = 1, Valpha=0.2, Vepsilon = 0.1)
+#' sim <- simulate_data(ind =50, partners = 4, iterations = 5,
+#'                      B_0 = 1, Valpha=0.2, Vepsilon = 0.1)
 #'
 #' @export
 simulate_data <- function(

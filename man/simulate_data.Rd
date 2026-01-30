@@ -79,6 +79,7 @@ This function generates datasets where individual phenotypes are influenced
 by both direct and indirect (social) effects, under a specified sampling design.
 }
 \examples{
-sim <- simulate_data(ind =1200, partners = 4, iterations = 100, B_0 = 1, Valpha=0.2, Vepsilon = 0.1)
+sim <- simulate_data(ind =50, partners = 4, iterations = 5,
+                     B_0 = 1, Valpha=0.2, Vepsilon = 0.1)
 
 }

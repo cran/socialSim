@@ -3,13 +3,12 @@
 #' @param results Output from \code{run_model()}.
 #' @examples
 #' \donttest{
-#' if (requireNamespace("cmdstanr", quietly = TRUE) ||
-#'     requireNamespace("rstan", quietly = TRUE)) {
-#'   sim <- simulate_data(ind = 100, Valpha = 0.2, Vepsilon = 0.1, iterations = 2)
-#'   res <- run_model(sim, model = "Trait.stan", iter = 500, cores = 2)
-#'   summary(res)
+#' if (requireNamespace("rstan", quietly = TRUE)){
+#'   sim <- simulate_data(ind = 50, Valpha = 0.2, Vepsilon = 0.1, iterations = 2)
+#'   res <- run_model(sim, model = "Trait.stan", iter = 100, cores = 2)
+#'   summarise_results(res)
 #' } else {
-#'   message("CmdStanR or rstan not available; example skipped.")
+#'   message("rstan not available; example skipped.")
 #' }
 #' }
 #' @return Data frame with only parameters that were estimated in the Stan model.
@@ -52,8 +51,8 @@ summarise_results <- function(results) {
     summ <- results[[i]]$summary
     for (p in seq_along(par_names)) {
       stan_var <- unname(map[par_names[p]])
-      row <- summ[summ$variable == stan_var, , drop = FALSE]
-      est_mat[i, p] <- if (nrow(row)) row$mean[1] else NA_real_
+      row <- summ[rownames(summ) == stan_var, , drop = FALSE]
+      est_mat[i, p] <- if (nrow(row)) row[1, "mean"] else NA_real_
     }
   }
 
@@ -69,7 +68,7 @@ summarise_results <- function(results) {
     True      = as.numeric(true_vec),
     Mean_est  = as.numeric(mean_est),
     RelativeBias_percentage   = as.numeric(rel_bias)*100,
-    RelativeDisperision_percentage  = as.numeric(madm)*100,
+    RelativeDispersion_percentage  = as.numeric(madm)*100,
     check.names = FALSE
   )
 
