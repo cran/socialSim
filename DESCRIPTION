@@ -1,12 +1,12 @@
 Package: socialSim
 Type: Package
 Title: Simulate and Analyse Social Interaction Data
-Version: 0.1.8
+Version: 0.1.9
 Authors@R: 
     person(
       given = "Rori Efrain",
       family = "Wijnhorst",
-      email = "roriwijnhorst@gmail.com",
+      email = "roriwijnhorst@proton.me",
       role = c("aut", "cre"),
       comment = c(ORCID = "0000-0002-8902-592X")
     )
@@ -25,7 +25,7 @@ Description:
     variance–partitioning, and trait-based models, and to summarise model 
     performance in terms of bias and dispersion. For a more detailed description 
     of the available models and impact–responsiveness, see the accompanying 
-    preprint Wijnhorst et al. (2025) <doi:10.32942/X2F65M>.
+    article Wijnhorst et al. (2026) <doi:10.1093/jeb/voag013>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-GB
@@ -38,9 +38,9 @@ Config/testthat/edition: 3
 URL: https://github.com/RoriWijnhorst/socialSim
 BugReports: https://github.com/RoriWijnhorst/socialSim/issues
 NeedsCompilation: no
-Packaged: 2026-01-30 13:13:49 UTC; Wijnhorst
+Packaged: 2026-03-31 15:06:14 UTC; Wijnhorst
 Author: Rori Efrain Wijnhorst [aut, cre] (ORCID:
     <https://orcid.org/0000-0002-8902-592X>)
-Maintainer: Rori Efrain Wijnhorst <roriwijnhorst@gmail.com>
+Maintainer: Rori Efrain Wijnhorst <roriwijnhorst@proton.me>
 Repository: CRAN
-Date/Publication: 2026-01-30 14:10:02 UTC
+Date/Publication: 2026-03-31 22:40:02 UTC
